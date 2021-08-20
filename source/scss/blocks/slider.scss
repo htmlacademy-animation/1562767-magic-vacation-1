@@ -96,6 +96,9 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(25px);
+  transition: 0.6s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -124,6 +127,26 @@
     line-height: 1.5rem;
   }
 }
+
+
+.screen--story.active {
+  .swiper-slide-active,
+  .swiper-slide-next {
+    .slider__item-text {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+.swiper-slide-active .slider__item-text {
+  transition-delay: 0.2s;
+}
+
+.swiper-slide-next .slider__item-text {
+  transition-delay: 0.4s;
+}
+
 
 .slider__controls {
   position: absolute;

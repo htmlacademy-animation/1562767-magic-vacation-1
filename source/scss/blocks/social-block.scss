@@ -6,6 +6,11 @@
       opacity: 1;
       pointer-events: auto;
     }
+
+    .social-block__link {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -17,6 +22,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: 0.35s ease-out;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +41,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: 0.35s ease-out;
   }
 
   svg {
@@ -157,6 +164,12 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       margin: 0 1.25rem;
     }
+
+    @for $i from 0 through 2 {
+      &:nth-child(#{$i + 1}) .social-block__link {
+        transition-delay: $i * 0.1s;
+      }
+    }
   }
 }
 
@@ -168,6 +181,9 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(12px);
 
   @media (min-width: $stop-scaling) {
     width: 40px;
